@@ -18,7 +18,6 @@
         <servlet-name>ApplyLeave</servlet-name>
         <servlet-class>ApplyLeave</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ApplyLeave</servlet-name>
         <url-pattern>/applyLeave</url-pattern>
@@ -40,7 +39,22 @@
         <servlet-name>AddEmployee</servlet-name>
         <url-pattern>/addemployee</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>AddComplain</servlet-name>
+        <servlet-class>AddComplain</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddComplain</servlet-name>
+        <url-pattern>/addComplain</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddCustomizeData</servlet-name>
+        <servlet-class>AddCustomizeData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCustomizeData</servlet-name>
+        <url-pattern>/addCustomizeData</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>SearchEmployeeById</servlet-name>
         <servlet-class>SearchEmployeeById</servlet-class>
@@ -89,5 +103,13 @@
     <servlet-mapping>
         <servlet-name>LeaveReports</servlet-name>
         <url-pattern>/searchAllLeavesToPDF</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RemoveComplain</servlet-name>
+        <servlet-class>RemoveComplain</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveComplain</servlet-name>
+        <url-pattern>/removeCom</url-pattern>
     </servlet-mapping>
 </web-app>

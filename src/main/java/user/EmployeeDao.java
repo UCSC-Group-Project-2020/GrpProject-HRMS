@@ -166,6 +166,54 @@ public class EmployeeDao
         }
         return employee;
     }
+    public UserBean searchMyDetails(UserBean userBean)
+    {
+        String empId = userBean.getEmpId();
+        UserBean employee = new UserBean();
+
+        Connection con = null;
+        Statement statement = null;
+        ResultSet rs = null;
+
+        String fName,lName,NIC,dob,address,email,password,contact;
+
+        try
+        {
+            con = DBconn.getConnection();
+            statement = con.createStatement();
+            rs = statement.executeQuery("SELECT * from USER WHERE empId = '"+empId+"'");
+
+            if(rs.next())
+            {
+                fName = rs.getString("firstName");
+                lName = rs.getString("lastName");
+                NIC = rs.getString("NIC");
+                dob = rs.getString("DOB");
+                address = rs.getString("address");
+                email = rs.getString("email");
+                password = rs.getString("password");
+                contact = rs.getString("contactNo");
+
+
+                employee.setEmpId(empId);
+                employee.setFName(fName);
+                employee.setLName(lName);
+                employee.setNIC(NIC);
+                employee.setDOB(dob);
+                employee.setAddress(address);
+                employee.setContact(contact);
+                employee.setEmail(email);
+                employee.setPassword(password);
+
+            }
+            con.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return employee;
+    }
 
     public List<UserBean> searchAllEmployees()
     {
