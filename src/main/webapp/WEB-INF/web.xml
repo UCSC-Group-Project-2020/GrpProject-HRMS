@@ -76,9 +76,18 @@
         <servlet-name>UpdateEmployee</servlet-name>
         <servlet-class>UpdateEmployee</servlet-class>
     </servlet>
+    changeMyDetails
     <servlet-mapping>
         <servlet-name>UpdateEmployee</servlet-name>
         <url-pattern>/updateemployee</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateMyDetails</servlet-name>
+        <servlet-class>UpdateMyDetails</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMyDetails</servlet-name>
+        <url-pattern>/updateMyDetails</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>SearchLeaves</servlet-name>

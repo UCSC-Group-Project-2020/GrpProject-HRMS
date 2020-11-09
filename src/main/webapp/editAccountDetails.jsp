@@ -21,10 +21,16 @@
     <div class="heading">
         <h3>Change My Details</h3>
     </div>
-    <form action="changeMyDetails" method="POST">
+    <form action="updateMyDetails" method="POST">
         <%
             String result= (String) request.getAttribute("result");
             if(result != null){
+                if(result=="ErrCurrent"){%>
+        <h4 class="response" style="color: #DC143C;">
+            Current Password is invalid!Please Input Your Details Again!
+        </h4>
+        <%}
+            request.setAttribute("result",null);
                 if(result=="ErrPass"){%>
         <h4 class="response" style="color: #DC143C;">
             Password and Confirm Password is not Same!Please Input Your Details Again!
