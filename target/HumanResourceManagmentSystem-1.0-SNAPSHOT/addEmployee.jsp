@@ -73,15 +73,19 @@
                         Statement statement = con.createStatement();
                         rs = statement.executeQuery("SELECT empId FROM user ORDER BY empId DESC LIMIT 1");
 
-                        while (rs.next()) {%>
+                        if (rs.next()) {%>
                 <th>
                     <input class="input" type="text" name="empid" value="<%=rs.getInt("empId")+1%>" readonly>
                 </th>
             </tr>
+            <%}else {%>
+            <th>
+                <input class="input" type="text" name="empid" value="10000" readonly>
+            </th>
+
+            </tr>
                         <%}} catch (SQLException e) {
                         e.printStackTrace();
-                        System.out.println("Error");
-                        System.out.println(e);
                         }%>
             <tr>
                 <td>
@@ -160,18 +164,6 @@
             </tr>
 
         </table>
-        <div class="fingerprint">
-            <br>
-            <table>
-
-                <tr>
-                    <th>
-                        <button class="open-button" onclick="openForm()">Add Fingerprint</button>
-                    </th>
-                </tr>
-
-            </table>
-        </div>
         <div class="salarydetails">
             <br>
             <label class="Basic">Salary Details</label>

@@ -19,7 +19,6 @@ public class LoginDao
         Statement statement = null;
         ResultSet rs = null;
 
-        //String empIdDB = "";
         String userNameDB = "";
         String passwordDB = "";
 
@@ -33,7 +32,6 @@ public class LoginDao
             {
                 userNameDB = rs.getString("empId");
                 passwordDB = rs.getString("password");
-                //empIdDB = rs.getString("empId");
 
                 if (userName.equals(userNameDB) && password.equals(passwordDB))
                 {

@@ -29,6 +29,9 @@ public class Login extends HttpServlet
 
         String userValidate = loginDao.authenticateUser(loginBean);
 
+
+
+
         if (userValidate.equals("Successful"))
         {
             UserBean privileges = new UserBean();
