@@ -7,5 +7,17 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/hrmdb</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="hrmsdb@34.66.228.216" uuid="8ac21dce-74fb-4be4-aeb8-3fd3820943e1">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://34.66.228.216:3306/hrmsdb</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="hrmsdb@localhost" uuid="fa582326-5ff9-4a78-b506-9cad4b8d2807">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/hrmsdb</jdbc-url>
+    </data-source>
   </component>
 </project>

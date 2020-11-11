@@ -81,7 +81,7 @@ public class UserDao
         }
         catch (SQLException e)
         {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
         return userPrivilege;
     }

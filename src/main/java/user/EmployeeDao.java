@@ -166,6 +166,54 @@ public class EmployeeDao
         }
         return employee;
     }
+    public UserBean searchMyDetails(UserBean userBean)
+    {
+        String empId = userBean.getEmpId();
+        UserBean employee = new UserBean();
+
+        Connection con = null;
+        Statement statement = null;
+        ResultSet rs = null;
+
+        String fName,lName,NIC,dob,address,email,password,contact;
+
+        try
+        {
+            con = DBconn.getConnection();
+            statement = con.createStatement();
+            rs = statement.executeQuery("SELECT * from USER WHERE empId = '"+empId+"'");
+
+            if(rs.next())
+            {
+                fName = rs.getString("firstName");
+                lName = rs.getString("lastName");
+                NIC = rs.getString("NIC");
+                dob = rs.getString("DOB");
+                address = rs.getString("address");
+                email = rs.getString("email");
+                password = rs.getString("password");
+                contact = rs.getString("contactNo");
+
+
+                employee.setEmpId(empId);
+                employee.setFName(fName);
+                employee.setLName(lName);
+                employee.setNIC(NIC);
+                employee.setDOB(dob);
+                employee.setAddress(address);
+                employee.setContact(contact);
+                employee.setEmail(email);
+                employee.setPassword(password);
+
+            }
+            con.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return employee;
+    }
 
     public List<UserBean> searchAllEmployees()
     {
@@ -213,7 +261,6 @@ public class EmployeeDao
 
         String fName, dob, lName, NIC, address, email, password, confirmPassword, contact;
         String res = null;
-        //Date dob;
         int totLeaves, remLeaves, takenLeaves, empAddDB, empDelDB, postAddDB, postDelDB, postViewDB, chatSysDB, applyLeaveDB, decisionLeaveDB, salaryManageDB, customizeDataDB, editPersonalDetailsDB, giveComSugDB, viewComSugDB, viewMyAttendDB, viewAllAttendDB, viewMyLeavesDB, viewAllLeavesDB, viewMySalaryDB, viewAllSalaryDB, genReportDB;
         float basicSal, otRate;
 
@@ -352,6 +399,76 @@ public class EmployeeDao
             }
         }
         return res;
+    }
+    public String updateMyDetails(UserBean Emp)
+    {
+        Connection con = null;
+        Statement statement = null;
+        ResultSet rs = null;
+
+        String fName,dob,lName,NIC,address,email,password,confirmPassword,contact, res,currentPassword;
+
+        int empId = Integer.parseInt(Emp.getEmpId());
+        System.out.println(Emp.getEmpId());
+        fName = Emp.getFName();
+        lName = Emp.getLName();
+        NIC = Emp.getNIC();
+        dob = Emp.getDOB();
+        address = Emp.getAddress();
+        contact = Emp.getContact();
+        email = Emp.getEmail();
+        currentPassword=Emp.getCurrentpassword();
+        password = Emp.getPassword();
+        confirmPassword = Emp.getConfirmPassword();
+        String id=Emp.getEmpId();
+
+        System.out.println(id);
+
+        if (! password .equals(confirmPassword)) {
+            res = "ErrPass";
+            return res;
+        } else if (password.length() < 8) {
+            res = "ErrLength";
+            return res;
+
+        }
+            try
+            {
+                con = DBconn.getConnection();
+                statement = con.createStatement();
+                rs = statement.executeQuery("SELECT password FROM user WHERE empId = '"+id+"'");
+                System.out.println("SELECT password FROM user WHERE empId = '"+id+"'");
+                if(rs.next()){
+                    String pass=rs.getString("password");
+                    if (!pass.equals(currentPassword)){
+                        System.out.println(pass   +"----------- "+ currentPassword);
+                        return "ErrCurrent";
+                    }
+                }
+                PreparedStatement st1 = con.prepareStatement("UPDATE user SET firstName=?,lastName=?,NIC=?,DOB=?,address=?,contactNo=?,email=?,password=? WHERE empId=?");
+
+                st1.setString(1,fName );
+                st1.setString(2,lName);
+                st1.setString(3,NIC);
+                st1.setString(4,dob);
+                st1.setString(5,address);
+                st1.setString(6,contact);
+                st1.setString(7, email);
+                st1.setString(8,password);
+                st1.setInt(9, empId);
+
+                st1.executeUpdate();
+                st1.close();
+                con.close();
+                res = "Successful";
+                return res;
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                res = "Unsuccessful";
+                return res;
+            }
+
     }
     public String updateEmployee(UserBean Emp)
     {

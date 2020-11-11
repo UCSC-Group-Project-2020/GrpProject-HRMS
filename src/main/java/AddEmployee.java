@@ -40,7 +40,14 @@ public class AddEmployee extends HttpServlet{
         postDelDB = Integer.valueOf(request.getParameter("postDelete"));
         postViewDB = Integer.valueOf(request.getParameter("postView"));
         chatSysDB = Integer.valueOf(request.getParameter("chatSystemUse"));
+
         applyLeaveDB = Integer.valueOf(request.getParameter("leaveApply"));
+        viewMyLeavesDB = Integer.valueOf(request.getParameter("myLeaveHistoryView"));
+
+        if (applyLeaveDB == 1){
+            viewMyLeavesDB=1;
+        }
+
         decisionLeaveDB = Integer.valueOf(request.getParameter("ApproveOrRejectLeave"));
         salaryManageDB = Integer.valueOf(request.getParameter("salaryManagement"));
         customizeDataDB = Integer.valueOf(request.getParameter("dataCustomize"));
@@ -49,7 +56,6 @@ public class AddEmployee extends HttpServlet{
         viewComSugDB = Integer.valueOf(request.getParameter("complain_suggestionView"));
         viewMyAttendDB = Integer.valueOf(request.getParameter("myAttendanceHistoryView"));
         viewAllAttendDB = Integer.valueOf(request.getParameter("othersAttendanceHistoryView"));
-        viewMyLeavesDB = Integer.valueOf(request.getParameter("myLeaveHistoryView"));
         viewAllLeavesDB = Integer.valueOf(request.getParameter("otherLeaveHistoryView"));
         viewMySalaryDB = Integer.valueOf(request.getParameter("mySalary"));
         viewAllSalaryDB = Integer.valueOf(request.getParameter("otherSalary"));
