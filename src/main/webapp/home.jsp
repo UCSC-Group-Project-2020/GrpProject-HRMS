@@ -5,12 +5,18 @@
   Time: 1:20 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="ISO-8859-1"%>
+<%@ page import="DBconnection.DBconn" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.io.ByteArrayOutputStream" %>
+<%@ page import="java.util.Base64" %>
 
 <html>
 <head>
     <title>Human Resource Management System</title>
     <link rel="stylesheet" href="style/mainStyle.css">
+    <link rel="icon" href="img/logo.png" sizes="25x25" type="image/png">
     <link rel="stylesheet" href="style/home.css">
 
 </head>
@@ -19,101 +25,93 @@
     <div class="heading">
         <h3>InfoCorner</h3>
     </div>
+    <%if(session.getAttribute("postView").equals(0)){%>
+
+           <img class="noPostImg" src="img/noPost.jpg" />
+
+    <%}else{%>
+    <form method="POST" action="home.jsp">
     <div class="post">
         <br>
         <table id="post_table">
-            <%--post 2--%>
+            <%
+                ResultSet rs= null;
+                try
+                {
+                    Connection con = DBconn.getConnection();
+                    Statement statement = con.createStatement();
+                    rs = statement.executeQuery("SELECT post.*,user.firstName,user.lastName FROM post INNER JOIN user ON user.empId = post.empId GROUP BY post.postId DESC");
+
+                    while(rs.next()){
+                        String pId = rs.getString("postId");
+                        int count = rs.getInt("postImage");
+            %>
             <tr>
             <tr>
-                <th class="name">Chamika Deshan</th>
+                <th class="name"><%=rs.getString("firstName")%> <%=rs.getString("lastName")%></th>
             </tr>
             <tr>
-                <td class="date">2020-10-22</td>
+                <td class="date"><%=rs.getString("dateTime")%></td>
             </tr>
             <tr>
-                <td class="des"> Google Ads helps to promote your business on YouTube,
-                    Google Ads helps to promote your business on YouTube,Google Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanThe
-                    queries..</td>
+                <td class="des"><%=rs.getString("postText")%></td>
             </tr >
             <tr>
+            <%
+            String imgs[] = new String[count];
+            Blob img;
+            int a=0;
+            ResultSet rsImg = null;
+            Statement getImg = con.createStatement();
+            rsImg = getImg.executeQuery("SELECT * FROM postimgs WHERE postId = '"+pId+"'");
+            while(rsImg.next())
+            {
+                img = rsImg.getBlob("image");
+                InputStream inputStream = img.getBinaryStream();
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                byte[] buffer = new byte[4096];
+                int bytesRead = -1;
 
-            <tr >
-                <th class="image">
+                while ((bytesRead = inputStream.read(buffer)) != -1)
+                {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
 
-                    <img class="imgL" src="img/1%20(1).jpg" alt="">
-                    <img class="imgR" src="img/1%20(2).jpg" alt="">
-
-                </th>
-
-
-            </tr>
-            <tr >
-                <th class="image">
-
-                    <img class="imgL" src="img/1%20(3).jpg" alt="">
-                    <img class="imgR" src="img/1%20(4).jpg" alt="">
-                </th>
-
-
-            </tr>
-                <tr>
-                    <th class="image">
-
-                        <img class="imgL" src="img/1%20(8).jpg" alt="">
-                        <img class="imgR" src="img/1%20(9).jpg" alt="">
-
-                    </th>
-
-                </tr>
-            </tr>
-            </tr>
-            <%--post 2--%>
-            <tr>
-            <tr>
-                <th class="name">Chamika Deshan</th>
-            </tr>
-            <tr>
-                <td class="date">2020-10-22</td>
-            </tr>
-            <tr>
-                <td class="des"> Google Ads helps to promote your business on YouTube,
-                    Google Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanTheGoogle Ads helps to promote your business on YouTube,
-                    Search and other relevanThen after from another for loop, this program gets inputs from the user regarding
-                    queries..</td>
-            </tr>
-            <tr>
-
-
-            <tr>
-                <th class="Dobimage">
-
-                    <img class="Dobimage" src="img/1%20(5).jpg" alt="">
-                </th>
-
-
-            </tr>
+                byte[] imageBytes = outputStream.toByteArray();
+                imgs[a] = Base64.getEncoder().encodeToString(imageBytes);
+                a++;
+            }
+            if(count%2==0){
+                for(int j=0;j<count;j=j+2){%>
             <tr>
                 <th class="image">
-
-                    <img class="imgL" src="img/1%20(6).jpg" alt="">
-                    <img class="imgR" src="img/1%20(7).jpg" alt="">
-
+                    <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>" />
+                    <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
                 </th>
-
             </tr>
+            <%}}
+            else{%>
+            <tr>
+                <th class="image">
+                    <img class="singleImg" src="data:image/jpg;base64,<%=imgs[0]%>"/>
+                </th>
+            </tr>
+                <%for(int j=1;j<count;j=j+2){%>
+            <tr>
+                <th class="image">
+                    <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>"/>
+                    <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
+                </th>
+            </tr>
+            <%}}}}catch (SQLException e){e.printStackTrace();}%>
             </tr>
 
             </tr>
 
         </table>
     </div>
+        <%}%>
+    </form>
 
 
 </div>

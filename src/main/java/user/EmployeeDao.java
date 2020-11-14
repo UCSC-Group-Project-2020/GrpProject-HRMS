@@ -169,6 +169,7 @@ public class EmployeeDao
     public UserBean searchMyDetails(UserBean userBean)
     {
         String empId = userBean.getEmpId();
+
         UserBean employee = new UserBean();
 
         Connection con = null;

@@ -10,6 +10,15 @@
     overflow-y: auto ;
     background-image: linear-gradient(to right, #0c3b60, #0c3b60, #041d3c, #000);
 }
+.response{
+    background: #000000;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
 .Basic{
     color: #ffffff;
 }
@@ -18,7 +27,7 @@
     color: #ffffff;
     font-family: "Roboto", sans-serif;
 }
-table{
+.data{
     padding-left: 100px;
 }
 td {
@@ -88,20 +97,18 @@ textarea{
     font-family: "Roboto", sans-serif;
     font-size: 14px;
 }
-.content .result{
-
+.content .result tr{
+    text-align: center;
     color: #ffffff;
 }
 .content .result th{
-
     color: #ffffff;
-
     padding-bottom: 30px;
-}
-.content .result tr{
-    border: 1px solid black;
-    color: #ffffff;
     text-align: center;
+}
+.content .result td{
+    width: 350px;
+    height: 40px;
 }
 
 ::-webkit-scrollbar {

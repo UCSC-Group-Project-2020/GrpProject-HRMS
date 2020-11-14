@@ -10,6 +10,60 @@
     overflow-y: auto ;
     background-image: linear-gradient(to right, #0c3b60, #0c3b60, #041d3c, #000);
 }
+.fileChoose::-webkit-file-upload-button {
+    content: 'Select Image';
+    background: #041d3c;
+    border:2px solid;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+.fileChoose:hover::before {
+    border-color: black;
+}
+.fileChoose:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.fileChoose{
+
+    background: none;
+    border:2px solid;
+    text-decoration: none;
+    padding: 10px;
+
+    margin:10px 6px 20px 6px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition-property: background;
+}
+.response{
+    background: #000000;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.addImg{
+
+    padding: 5px;
+    background: none;
+    border:2px solid;
+    text-decoration: none;
+    padding: 10px;
+    float: right;
+    margin:10px 6px 20px 6px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition-property: background;
+}
 .main{
     padding-left: 30px;
     color: #ffffff;
@@ -37,15 +91,7 @@ th {
     text-align: center;
 
 }
-.fileChoose{
 
-    line-height: 25px;
-    border-radius: 6px;
-    width: 100%;
-    font-size: 14px;
-    color: #fff;
-
-}
 .send{
 
     padding: 5px;
@@ -66,6 +112,12 @@ th {
     border:2px solid #073356;
     transition:300ms;
 }
+.addImg:hover{
+    color: #1f9cf3;
+    border:2px solid #073356;
+    transition:300ms;
+}
+
 .label{
     width: 500px;
     color: white;

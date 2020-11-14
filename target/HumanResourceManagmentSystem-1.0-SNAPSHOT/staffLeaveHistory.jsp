@@ -93,7 +93,6 @@
                 String toDateSearch= request.getParameter("toDate");
                 String fromDateSearch= request.getParameter("fromDate");
                 if (toDateSearch != null) {
-                    System.out.println("loaded by sarching");
                     List<LeaveBean> leavesBySearch = (List<LeaveBean>) request.getAttribute("leaves");%>
             <tr>
                 <h4 class="serchResult">
@@ -134,14 +133,9 @@
             <%
 
                 String toDate1= request.getParameter("toDate");
-
-                System.out.println(toDate1);
                 if (toDate1== null) {
-                    System.out.println("defaulty loaded");
                     for(LeaveBean leave:leaveListDefault){
             %>
-
-
             <tr>
 
                 <td class="leaveId"><%=leave.getLeaveId()%></td>

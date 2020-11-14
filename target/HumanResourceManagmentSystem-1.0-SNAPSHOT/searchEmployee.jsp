@@ -63,7 +63,7 @@
                 <tr>
                     <td></td><td></td>
                     <td>
-                        <input class="input" type="text" name="empId" id="empId" readonly>
+                        <input class="input" type="text" name="empId" placeholder="Select Employee To Update" id="empId" readonly>
                     </td>
                     <td></td><td></td>
                 </tr>
@@ -88,25 +88,23 @@
                     <th align="left">
                            NIC
                     </th>
-
                 </tr>
                 <%
                 for(UserBean employee:empList){
+                    if(session.getAttribute("empId").equals(employee.getEmpId())){}
+                    else{
                 %>
                 <tr>
                     <td class="empIdd"><%=employee.getEmpId()%></td>
                     <td class="empName"><%=employee.getFName()%> <%=employee.getLName()%></td>
-                    <td class="empNIC"><%=employee.getNIC()%><%}%></td>
-
+                    <td class="empNIC"><%=employee.getNIC()%><%}}%></td>
                 </tr>
             </table>
             </div>
-
     </form>
 </div>
 </div>
 <%@include file="mainDashboard.jsp" %>
-
 <script type="text/javascript" src="js/loadDataToTable.js"></script>
 </body>
 </html>

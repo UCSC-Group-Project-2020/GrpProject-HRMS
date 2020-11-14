@@ -25,7 +25,6 @@
         <input class="input" type="number" name="LoginId" value="<%=session.getAttribute("empId")%>" hidden>
         <%
             String result= (String) request.getAttribute("result");
-            System.out.println(result);
             if(result != null){
                 if(result=="usedInLeave"){%>
         <h4 class="response" style="color: #DC143C;">
@@ -41,7 +40,8 @@
         </h4><%
 
         }request.setAttribute("result",null);
-    %><%
+    %>
+        <%
         if(result == "Unsuccessful"){%>
         <h4 class="response" style="color: #DC143C;">
             Unable To Remove This Employee! , Try Again.
@@ -58,7 +58,7 @@
                 <tr>
                     <td></td><td></td>
                     <td>
-                        <input class="input" type="text" name="empId" id="empId" readonly>
+                        <input class="input" type="text" name="empId" id="empId" placeholder="Select Employee To Remove" readonly>
                     </td>
                     <td></td><td></td>
                 </tr>

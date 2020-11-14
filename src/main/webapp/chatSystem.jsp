@@ -18,70 +18,22 @@
             <tr></tr>
             <tr>
                 <td>10001</td>
-                <td>Amaliya</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Ajith</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Chamila</td>
-            </tr>
-
-            <tr>
-                <td>10001</td>
-                <td>Perera</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Tharusha</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Ravindu</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Supun</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Dilan</td>
-            </tr><tr>
-            <td>10001</td>
-            <td>Supun</td>
-        </tr>
-            <tr>
-                <td>10001</td>
-                <td>Dilan</td>
-            </tr><tr>
-            <td>10001</td>
-            <td>Supun</td>
-        </tr>
-            <tr>
-                <td>10001</td>
-                <td>Dilan</td>
-            </tr><tr>
-            <td>10001</td>
-            <td>Supun</td>
-        </tr>
-            <tr>
-                <td>10001</td>
-                <td>Dilan</td>
-            </tr>
-            <tr>
-                <td>10001</td>
-                <td>Lakith</td>
-            </tr>
-            <tr>
-                <td>10001</td>
                 <td>Chamika</td>
             </tr>
             <tr>
-                <td>10008</td>
-                <td>Nanayakkara</td>
+                <td>10002</td>
+                <td>Supun</td>
             </tr>
+            <tr>
+                <td>10003</td>
+                <td>Lakith</td>
+            </tr>
+
+            <tr>
+                <td>10004</td>
+                <td>Ravindu</td>
+            </tr>
+
         </table>
     </div>
     <div class="chat">
@@ -112,63 +64,6 @@
             <div class="chatMsgs">
                 <h2 class="recived">I'm Also Fine</h2>
             </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">Hiii</h2>
-            </div>
-
-            <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">How Are You</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">I'm Finevvand dim sum yeahanand dim sum yeah yeah yeah. Lorem ipsum anand dim sum yeaanand dim sum yeah yeah yeanand dim sum yea yeah yeah. Lorem ipsum an You</h2>
-            </div> <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">How nevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lonevvand dim sum yeahanand dim sum yeah yeah yeah. Lo You</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">I'm Fine,How About You</h2>
-            </div> <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">How Are You</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">I'm Fine,um m sum yeah yeah yeah. Lorem ipsum andw About You</h2>
-            </div> <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">How Are You</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">I'm Fine,How About You</h2>
-            </div> <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">and dim ipsum anand dim sum yeah yeah yeah. Lorem ipsum anand dim sum yeah yeah yeah. Lorem ipsum anand dim sum yeah yeah yeah. Lorem ipsum an</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">I'm Fand dim sum yeah yeah yeah. Lorem ipsum ant You</h2>
-            </div>
-
-            <br><br><br>
-
-            <div class="chatMsgs">
-                <h2 class="recived">I'm Also Fine</h2>
-            </div>
-
-            <div class="chatMsgs">
-                <h2 class="sent">Hiii</h2>
-            </div>
-
             <br><br><br>
 
 

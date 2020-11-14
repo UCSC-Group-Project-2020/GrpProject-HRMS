@@ -17,11 +17,11 @@
                 int levResponce=rsNotifi.getInt("leaveResponseFlag");
 %>
     <a href="login.jsp" class="Logout">Logout</a>
-    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
+    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" href="chatSystem.jsp" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
     <%if(session.getAttribute("viewMySalary").equals(1)) {%><a href="mySalaryOverview.jsp" class="Salary"<%if(salNotify==1){%>style="background-color: #4BBE19" <%}%>>Calculated Salary</a><%}%>
     <%if(session.getAttribute("decisionLeave").equals(1)) {%><a href="approveOrRejectLeave.jsp" class="Leave" <%if(leaveNotify==1){%> style="background-color: #4BBE19"<%}%>>Leave Requests</a><%}%>
     <%if(session.getAttribute("viewMyLeaves").equals(1)) {%><a href="myLeaveHistory.jsp" class="Leave" <%if(levResponce==1){%> style="background-color: #4BBE19"<%}%> >Leave Response</a><%}%>
-    <%if(session.getAttribute("viewComSug").equals(1)) {%><a href="viewComplians.jsp" class="com" <%if(comNotify==1){%>style="background-color: #4BBE19"<%}%>>Complain/Suggestion</a><%}}
+    <%if(session.getAttribute("viewComSug").equals(1)) {%><a href="viewComplains.jsp" class="com" <%if(comNotify==1){%>style="background-color: #4BBE19"<%}%>>Complain/Suggestion</a><%}}
         } catch (SQLException e) {
         e.printStackTrace();
         System.out.println("WERTYUIOP{"+session.getAttribute("empId"));
@@ -57,7 +57,7 @@
                 <a href="#">Complain/Suggestions<span class="sub-arrow"></span></a>
                 <ul>
                     <%if(session.getAttribute("giveComSug").equals(1)) {%><li><a href="addComplains.jsp">Add Complain/Suggestions</a></li><%}%>
-                    <%if(session.getAttribute("viewComSug").equals(1)) {%><li><a href="viewComplians.jsp">View Complain/Suggestions</a></li><%}%>
+                    <%if(session.getAttribute("viewComSug").equals(1)) {%><li><a href="viewComplains.jsp">View Complain/Suggestions</a></li><%}%>
                 </ul>
             </li>
             <%}%>
@@ -79,7 +79,7 @@
                 <ul>
                     <%if(session.getAttribute("viewMySalary").equals(1)) {%><li><a href="mySalaryOverview.jsp">My Salary Overview</a></li><%}%>
                     <%if(session.getAttribute("viewAllSalary").equals(1)) {%><li><a href="staffSalaryOverview.jsp">Staff Salary Overview</a></li><%}%>
-                    <%if(session.getAttribute("salaryManage").equals(1)) {%><li><a href="salaryManagment.jsp">Salary Management</a></li><%}%>
+                    <%if(session.getAttribute("salaryManage").equals(1)) {%><li><a href="salaryManagement.jsp">Salary Management</a></li><%}%>
                 </ul>
             </li>
 
@@ -113,8 +113,8 @@
             <li>
                 <a>Reports<span class="sub-arrow"></span></a>
                 <ul>
-                    <%if(session.getAttribute("genReport").equals(1)) {%><li><a href="attendanceReports.jsp">Attendance Reports</a></li><%}%>
-                    <%if(session.getAttribute("genReport").equals(1)) {%><li><a href="salaryReports.jsp">Salary Reports</a></li><%}%>
+                    <%if(session.getAttribute("genReport").equals(1)) {%><li><a href="attendanceReport.jsp">Attendance Reports</a></li><%}%>
+                    <%if(session.getAttribute("genReport").equals(1)) {%><li><a href="salaryReport.jsp">Salary Reports</a></li><%}%>
                     <%if(session.getAttribute("genReport").equals(1)) {%><li><a href="leaveReport.jsp">Leave Reports</a></li><%}%>
                 </ul>
             </li>

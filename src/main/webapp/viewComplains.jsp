@@ -83,7 +83,7 @@
 
         List<ComplainBean> complainList = comDao.allComplains(empId);
     %>
-
+    <input class="input" type="number" name="empId" value="<%=session.getAttribute("empId")%>" hidden>
     <div class="result">
         <table id="result">
             <tr>
@@ -93,11 +93,13 @@
             </tr>
             <%
                 for(ComplainBean complain:complainList){
+                    if(session.getAttribute("empId").equals(complain.getEmpId())){}
+                    else{
             %>
             <tr>
                 <td class="comId"><%=complain.getcomId()%></td>
                 <td class="Date"><%=complain.getDate()%></td>
-                <td class="description"><%=complain.getDescription()%><%}%></td>
+                <td class="description"><%=complain.getDescription()%><%}}%></td>
 
         </table>
 

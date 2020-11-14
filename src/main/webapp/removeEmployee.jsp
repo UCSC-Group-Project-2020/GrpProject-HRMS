@@ -58,7 +58,7 @@
                 <tr>
                     <td></td><td></td>
                     <td>
-                        <input class="input" type="text" name="empId" id="empId" readonly>
+                        <input class="input" type="text" name="empId" id="empId" placeholder="Select Employee To Remove" readonly>
                     </td>
                     <td></td><td></td>
                 </tr>

@@ -23,12 +23,6 @@ public class AddCustomizeData  extends HttpServlet {
         String resetDate=fromDate +"-"+ fromMonth;
 
 
-        System.out.println(startTime);
-        System.out.println(endTime);
-        System.out.println(salaryCalculation);
-        System.out.println(resetDate);
-        System.out.println(empId);
-
         CustomizeBean cb=new CustomizeBean();
 
         cb.setstartTime(startTime);

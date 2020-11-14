@@ -20,8 +20,6 @@
     font-size: 15px;
     border-radius: 6px;
 }
-
-
 .send{
 
     padding: 5px;
@@ -87,7 +85,7 @@
 .content .result td {
     width: 300px;
     padding-left: 20px;
-    height: 30px;
+    height: 40px;
 }
 
 .heading{

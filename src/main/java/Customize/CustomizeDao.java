@@ -11,7 +11,6 @@ public class CustomizeDao
 {
     public String addData(CustomizeBean cb){
         Connection con = null;
-
         String result;
         String startTime,endTime,empId;
         int salaryCalculation;
@@ -28,6 +27,9 @@ public class CustomizeDao
         String today= formatter.format(date);
 
         try {
+
+            con = DBconn.getConnection();
+
             PreparedStatement st1 = con.prepareStatement("INSERT INTO customizeddata (dateUpdated,startTime,endTime,salaryCalculationDate,resetDate,changedBy) VALUES(?,?,?,?,?,?)");
 
             st1.setString(1, today);
@@ -44,6 +46,7 @@ public class CustomizeDao
             result="Successful";
 
         } catch (SQLException throwables) {
+            System.out.println(throwables);
             throwables.printStackTrace();
             result = "Unsuccessful";
         }
@@ -64,8 +67,8 @@ public class CustomizeDao
         {
             con = DBconn.getConnection();
             statement = con.createStatement();
-            rs1 = statement.executeQuery("SELECT * FROM `customizeddata`");
-
+            rs1 = statement.executeQuery("SELECT * FROM `customizeddata` ORDER BY`ID` DESC");
+            rs1.next();
             while (rs1.next()){
                 startTime= rs1.getString("startTime");
                 endTime= rs1.getString("endTime");
@@ -110,7 +113,8 @@ public class CustomizeDao
         try {
             statement = con.createStatement();
             rs1 = statement.executeQuery("SELECT * FROM `customizeddata` ORDER BY`ID` DESC LIMIT 1");
-            if (rs1.next()){
+
+            while (rs1.next()){
                 startTime= rs1.getString("startTime");
                 endTime= rs1.getString("endTime");
                 resetDate= rs1.getString("resetDate");

@@ -16,19 +16,23 @@ public class AddComplain extends HttpServlet {
         date=request.getParameter("date");
         description=request.getParameter("description");
 
-        ComplainBean cb=new ComplainBean();
-        cb.setcomId(comId);
-        cb.setEmpId(empId);
-        cb.setDate(date);
-        cb.setDescription(description);
+        if (description.isEmpty()){
+            String  result="Unsuccessful";
 
-        System.out.println(date);
+            request.setAttribute("result",result);
+            request.getRequestDispatcher("/addComplains.jsp").forward(request, response);
+        }else {
+            ComplainBean cb = new ComplainBean();
+            cb.setcomId(comId);
+            cb.setEmpId(empId);
+            cb.setDate(date);
+            cb.setDescription(description);
 
+            ComplainDao com = new ComplainDao();
+            String result = com.addData(cb);
+            request.setAttribute("result", result);
 
-        ComplainDao com=new ComplainDao();
-        String result =com.addData(cb);
-        request.setAttribute("result",result);
-
-        request.getRequestDispatcher("/addComplains.jsp").forward(request, response);
+            request.getRequestDispatcher("/addComplains.jsp").forward(request, response);
+        }
     }
 }
