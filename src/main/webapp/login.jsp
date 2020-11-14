@@ -10,6 +10,7 @@
 <head>
     <title>System Login</title>
     <link rel="stylesheet" type="text/css" href="style/login.css">
+    <link rel="icon" href="img/lock.png" sizes="16x16" type="image/png">
 </head>
 <body>
 <img class="wave" src="img/3.jpg">

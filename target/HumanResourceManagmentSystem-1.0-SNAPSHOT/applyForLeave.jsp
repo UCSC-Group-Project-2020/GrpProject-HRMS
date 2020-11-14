@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Deshan-UCSC
-  Date: 10/18/2020
-  Time: 6:09 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="DBconnection.DBconn" %>
 <%@ page import="java.sql.*" %>
@@ -26,9 +20,10 @@
     <div class="heading"><h3>Apply For Leave</h3>
     </div>
     <form action="applyLeave" method="POST">
+
     <%
         String result= (String) request.getAttribute("result");
-        System.out.println(result);
+
     if(result != null){
 
         if(result=="Successful"){%>
@@ -37,7 +32,8 @@
                 </h4><%
 
         }request.setAttribute("result",null);
-    %><%
+    %>
+        <%
          if(result == "Unsuccessful"){%>
                 <h4 class="response" style="color: #DC143C;">
                     Unable To Send Your Leave! , Try Again.
@@ -83,9 +79,6 @@
             </tr>
             <%}} catch (SQLException e) {
                 e.printStackTrace();
-                System.out.println("Error while loading employees to the table");
-
-
             }%>
         </table>
 
@@ -124,8 +117,6 @@
 
                     } catch (SQLException e) {
                 e.printStackTrace();
-                System.out.println("Error while geting the max leave ID");
-
             }
 
                 Date date = new Date();

@@ -89,7 +89,6 @@ textarea{
     height: 120px;
     border-radius: 6px;
     padding: 20px;
-
     font-family: "Roboto", sans-serif;
     font-size: medium;
 }
@@ -99,7 +98,7 @@ textarea{
     color: #ffffff;
 }
 .content .result th{
-    width: 250px;
+    width: 350px;
     color: #ffffff;
     padding-bottom: 30px;
     text-align: center;
@@ -107,6 +106,7 @@ textarea{
 .content .result td{
     width: 350px;
     height: 40px;
+    padding-bottom: 20px;
 }
 .content .result table tr:not(:first-child){
     cursor: pointer;transition: all .25s ease-in-out;

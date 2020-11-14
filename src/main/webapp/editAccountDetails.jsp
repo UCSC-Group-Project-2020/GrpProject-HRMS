@@ -75,7 +75,7 @@
                     <label class="label">Emp ID</label>
                 </td>
                 <th>
-                    <input class="input" type="number" name="empId" value="<%=session.getAttribute("empId")%>" readonly>
+                    <input class="input" type="number" name="empId" value="<%=empDetails.getEmpId()%>" readonly>
                 </th>
             </tr>
             <tr>

@@ -122,49 +122,50 @@
                 </th>
             </tr>
             <tr>
+            <tr>
                 <td>
-                    A
+                    Sample ID 1
                 </td>
                 <td>
-                    B
+                    Sample From 1
                 </td>
                 <td>
-                    C
+                    Sample To 1
                 </td>
                 <td>
-                    B
+                     Basic 1
                 </td>
                 <td>
-                    C
+                     OT Rate 1
                 </td>
                 <td>
-                    D
+                     OT Pay 1
                 </td>
                 <td>
-                    D
+                    Sample Tot 1
                 </td>
             </tr>
             <tr>
                 <td>
-                    A
+                    Sample ID 2
                 </td>
                 <td>
-                    B
+                    Sample From 2
                 </td>
                 <td>
-                    C
+                    Sample To 2
                 </td>
                 <td>
-                    B
+                     Basic 2
                 </td>
                 <td>
-                    C
+                     OT Rate 2
                 </td>
                 <td>
-                    D
+                     OT Pay 2
                 </td>
                 <td>
-                    D
+                    Sample Tot 2
                 </td>
             </tr>
 

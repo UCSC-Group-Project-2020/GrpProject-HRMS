@@ -1,2 +1,2 @@
-# GrpProject-HRMS
-Human Resource Management System
+# HRMS
+Customizable Human Resource Management System

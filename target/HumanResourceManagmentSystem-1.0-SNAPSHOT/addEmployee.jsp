@@ -80,7 +80,7 @@
             </tr>
             <%}else {%>
             <th>
-                <input class="input" type="text" name="empid" value="10000" readonly>
+                <input class="input" type="text" name="empid" value="10001" readonly>
             </th>
 
             </tr>
@@ -486,7 +486,7 @@
 
                     <th></th>
                     <th>
-                        <input class="Register" type="submit" value="Register"/>
+                        <input class="Register" type="submit" value="Next"/>
                     </th>
                 </tr>
             </table>

@@ -19,7 +19,7 @@ color: #44b718;
     transition: 500ms;
 }
 body{
-    background: #212f38;
+    background: #041d3c;
 
 }
 .heading{
@@ -167,7 +167,7 @@ h1{
     background-color: black;
 }
 .menu ul ul a:hover {
-    background-color: #052740;
+    background-image: linear-gradient(to left, #000, #041d3c, #0c3b60);
     border-left: 3px solid  #fff;
     background-position: left;
     color: #1f9cf3;
@@ -180,11 +180,11 @@ span{
     width: 100%;
 }
 .menu a:hover {
-    background-color: #052740;
+    background-image: linear-gradient(to left, #000, #041d3c, #0c3b60);
     border-left: 3px solid  #fff;
     background-position: left;
     color: #1f9cf3;
-    padding-left: 40px;
+    padding-left: 50px;
     transition: 800ms;
 }
 
@@ -210,9 +210,9 @@ span{
     transition:300ms;
 }
 .head a:hover{
-  border-bottom: 3px solid white;
+    border-bottom: 1px solid white;
     color: dodgerblue;
-    transition: 300ms;
+    transition: 200ms;
 }
 .grid-container {
     display: grid;

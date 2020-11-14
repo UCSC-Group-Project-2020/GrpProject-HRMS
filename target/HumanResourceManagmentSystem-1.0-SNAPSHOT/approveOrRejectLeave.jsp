@@ -26,7 +26,6 @@
     <form action="approveOrRejectLeave" method="POST">
         <%
             String result= (String) request.getAttribute("result");
-            System.out.println(result);
             if(result != null){
 
                 if(result=="Successful"){%>

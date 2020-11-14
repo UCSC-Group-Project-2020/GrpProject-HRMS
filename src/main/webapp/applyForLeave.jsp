@@ -20,6 +20,7 @@
     <div class="heading"><h3>Apply For Leave</h3>
     </div>
     <form action="applyLeave" method="POST">
+
     <%
         String result= (String) request.getAttribute("result");
 

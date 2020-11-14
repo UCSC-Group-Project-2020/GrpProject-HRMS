@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-
+<%%>
 <html>
 <head>
     <title>Human Resource Management System</title>
@@ -21,38 +19,40 @@
     <div class="heading">
         <h3>Add Post</h3>
     </div>
-    <br>
-    <div class="main">
+    <form action="addpost" method="POST" enctype="multipart/form-data">
+        <%
+            String result= (String) request.getAttribute("result");
+
+            if(result != null){
+
+                if(result=="Successful"){%>
+        <h4 class="response" style="color: #4bbe19;">
+            Successfully Posted on the Home!
+        </h4><%
+
+        }request.setAttribute("result",null);
+    %>
+        <%
+            if(result == "Unsuccessful"){%>
+        <h4 class="response" style="color: #DC143C;">
+            Unable To Send Your Post! , Try Again.
+        </h4>
+        <%} request.setAttribute("result",null);}
+            request.setAttribute("result",null);
+        %>
+    <div class="main" id="m">
         <table>
-            <tr>
+            <tr hidden>
                 <td>
                     <label class="label">Current Logged Employee Id</label>
                 </td>
                 <th>
-                    <input class="input" type="text" name="empId" placeholder="EmpId" readonly>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <label class="label">Post Id</label>
-                </td>
-                <th>
-                    <input class="input" type="text" name="comId" readonly>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <label class="label">Date</label>
-                </td>
-                <th>
-                    <input class="input" type="date" name="date">
+                    <input class="input" type="text" name="empId" value="<%=session.getAttribute("empId")%>" readonly>
                 </th>
             </tr>
         </table>
 
         <table>
-
-
             <table>
                 <tr>
                     <td>
@@ -70,13 +70,32 @@
             <table>
                 <tr>
                     <td>
-                        <label class="label">Image</label>
-                    </td>
-                    <th>
-                        <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename" class="fileChoose">
 
-                        </form>
+                    </td>
+                    <%//int i=0;%>
+                    <th>
+                        <!--<input type="file" id="myFile" name="imgFile" class="fileChoose" onclick="myFunction()">-->
+                        <input type="button" class="addImg" name="imgbtn" value="Add a Image" onclick="addImage()">
+                        <input type="text" name="tot" id="tot" value="0" readonly hidden>
+                    <script>
+                        let i=1;
+                        function addImage()
+                        {
+                            var filein = document.createElement("input");
+                            filein.type = "file";
+                            filein.name = "imgFile"+i;
+                            filein.className = "fileChoose";
+                            document.getElementById("m").appendChild(filein);
+                            document.getElementById("tot").value=i;
+                            i++;
+                        }
+                    </script>
+                        <script>
+                            function imgCount()
+                            {
+                                document.getElementsByTagName("file").length;
+                            }
+                        </script>
                     </th>
                 </tr>
             </table>
@@ -90,6 +109,7 @@
             </table>
         </table>
     </div>
+    </form>
 </div>
 </div>
 <%@include file="mainDashboard.jsp" %>

@@ -125,55 +125,55 @@
                 </th>
 
             </tr>
+
             <tr>
                 <td>
-                    A
+                    Sample ID 1
                 </td>
                 <td>
-                    B
+                    Sample Emp 1
                 </td>
                 <td>
-                    C
+                    Sample Date 1
                 </td>
                 <td>
-                    B
+                    Sample Attend 1
                 </td>
                 <td>
-                    C
+                    Sample Leave 1
                 </td>
                 <td>
-                    D
+                    Sample W/H 1
                 </td>
                 <td>
-                    A
+                    Sample OT 1
                 </td>
 
             </tr>
             <tr>
 
                 <td>
-                    B
+                    Sample ID 2
                 </td>
                 <td>
-                    v
+                    Sample Emp 2
                 </td>
                 <td>
-                    C
+                    Sample Date 2
                 </td>
                 <td>
-                    B
+                    Sample Attend 2
                 </td>
                 <td>
-                    C
+                    Sample Leave 2
                 </td>
                 <td>
-                    D
+                    Sample W/H 2
                 </td>
                 <td>
-                    D
+                    Sample OT 2
                 </td>
             </tr>
-
         </table>
     </div>
 

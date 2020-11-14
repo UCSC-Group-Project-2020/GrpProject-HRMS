@@ -9,8 +9,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="leave.LeaveBean" %>
 <%@ page import="leave.LeaveDao" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import ="java.util.Date" %>
+
 <html>
 <head>
     <title class="mainHEAD">Human Resource Management System</title>

@@ -17,7 +17,7 @@
                 int levResponce=rsNotifi.getInt("leaveResponseFlag");
 %>
     <a href="login.jsp" class="Logout">Logout</a>
-    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
+    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" href="chatSystem.jsp" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
     <%if(session.getAttribute("viewMySalary").equals(1)) {%><a href="mySalaryOverview.jsp" class="Salary"<%if(salNotify==1){%>style="background-color: #4BBE19" <%}%>>Calculated Salary</a><%}%>
     <%if(session.getAttribute("decisionLeave").equals(1)) {%><a href="approveOrRejectLeave.jsp" class="Leave" <%if(leaveNotify==1){%> style="background-color: #4BBE19"<%}%>>Leave Requests</a><%}%>
     <%if(session.getAttribute("viewMyLeaves").equals(1)) {%><a href="myLeaveHistory.jsp" class="Leave" <%if(levResponce==1){%> style="background-color: #4BBE19"<%}%> >Leave Response</a><%}%>
@@ -79,7 +79,7 @@
                 <ul>
                     <%if(session.getAttribute("viewMySalary").equals(1)) {%><li><a href="mySalaryOverview.jsp">My Salary Overview</a></li><%}%>
                     <%if(session.getAttribute("viewAllSalary").equals(1)) {%><li><a href="staffSalaryOverview.jsp">Staff Salary Overview</a></li><%}%>
-                    <%if(session.getAttribute("salaryManage").equals(1)) {%><li><a href="salaryManagment.jsp">Salary Management</a></li><%}%>
+                    <%if(session.getAttribute("salaryManage").equals(1)) {%><li><a href="salaryManagement.jsp">Salary Management</a></li><%}%>
                 </ul>
             </li>
 

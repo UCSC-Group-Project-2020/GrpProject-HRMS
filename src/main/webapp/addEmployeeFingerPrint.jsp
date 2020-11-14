@@ -21,8 +21,22 @@
     <div class="heading">
         <h3>Add Employee FingerPrint</h3>
     </div>
-    <br>
+
+        <%
+            String result= (String) request.getAttribute("result");
+            if(result != null){
+            if(result=="Successful"){%>
+
+        <h4 class="response" style="color: #4bbe19;">
+            Registration Successful , Add Your FingerPrint Now!
+        </h4><%
+        }
+            request.setAttribute("result",null);
+    }
+            request.setAttribute("result",null);
+        %>
     <div class="main">
+        <br>
         <table>
             <tr>
                 <td>
@@ -60,7 +74,8 @@
             <tr>
                 <td></td>
                 <th>
-                    <input class="scan" type="submit" value="Scan"/>
+                    <a href="addEmployee.jsp" class="scan">Register</a>
+
                 </th>
             </tr>
         </table>

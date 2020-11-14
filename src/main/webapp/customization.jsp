@@ -102,6 +102,7 @@
         <%
             CustomizeDao cusDao = new CustomizeDao();
             CustomizeBean empList = cusDao.searchCus();
+
             CustomizeDao cusDaoAll = new CustomizeDao();
             List<CustomizeBean> list = cusDaoAll.searchAll();
         %>
@@ -144,26 +145,6 @@
     <br>
   <h4>Last Customized Data</h4>
     <table id="result">
-        <tr>
-            <th>
-                Start Time
-            </th>
-            <th >
-                End Time
-            </th>
-            <th>
-                Calculation Date
-            </th>
-            <th>
-                Reset Date
-            </th>
-            <th>
-                Change Date
-            </th>
-            <th>
-                Change By
-            </th>
-        </tr>
 
         <%
         for(CustomizeBean leave:list){

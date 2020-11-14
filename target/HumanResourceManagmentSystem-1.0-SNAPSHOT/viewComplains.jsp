@@ -1,4 +1,6 @@
-<%--
+<%@ page import="complains.ComplainDao" %>
+<%@ page import="complains.ComplainBean" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: SupunN
   Date: 10/23/2020
@@ -18,9 +20,29 @@
     <div class="heading">
         <h3>View Complain/Suggestions</h3>
     </div>
-    <br>
+    <form action="removeCom" method="POST">
+        <%
+            String result= (String) request.getAttribute("result");
+
+
+        if(result=="Successful"){%>
+        <h4 class="response" style="color: #4bbe19;">
+            Complain/Suggestion  is Successfully Removed!
+        </h4><%
+
+        }request.setAttribute("result",null);
+    %>
+        <%
+            if(result == "Unsuccessful"){%>
+        <h4 class="response" style="color: #DC143C;">
+            Unable To Remove This  Complain/Suggestion ! , Try Again.
+        </h4>
+        <%request.setAttribute("result",null);}
+            request.setAttribute("result",null);
+        %>
+        <br>
     <div class="main">
-        <table>
+        <table class="data">
             <tr>
                 <td>
                     <label class="label">Complain/Suggestions Id</label>
@@ -37,58 +59,47 @@
                     <input class="input" type="text" name="date" id="date" readonly>
                 </th>
             </tr>
-            <tr>
-                <td>
-                    <label class="label">Type</label>
-                </td>
-                <th>
-                    <input class="input" type="text" name="type" id="type" readonly>
-                </th>
-            </tr>
         </table>
 
-        <table>
+        <table class="data">
             <tr>
                 <th>
                     <textarea rows="5" cols="50" name="description" id="description" readonly></textarea>
                 </th>
             </tr>
+
+            <tr>
+                <th>
+                    <input class="send" type="submit" value="Remove This Complain"/>
+                </th>
+            </tr>
         </table>
     </div>
     <br>
+        </form>
+    <%
+        ComplainDao comDao = new ComplainDao();
+        String empId= (String) session.getAttribute("empId");
+
+        List<ComplainBean> complainList = comDao.allComplains(empId);
+    %>
+    <input class="input" type="number" name="empId" value="<%=session.getAttribute("empId")%>" hidden>
     <div class="result">
-        <table id="table">
+        <table id="result">
             <tr>
-                <th>
-                    Complain/Suggestions Id
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Type
-                </th>
-                <th>
-                    Description
-                </th>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Description</th>
             </tr>
+            <%
+                for(ComplainBean complain:complainList){
+                    if(session.getAttribute("empId").equals(complain.getEmpId())){}
+                    else{
+            %>
             <tr>
-                <td>34567</td>
-                <td>D</td>
-                <td>D</td>
-                <td>dfghjkl;</td>
-            </tr>
-            <tr>
-                <td>34qwe567</td>
-                <td>D</td>
-                <td>D</td>
-                <td>Dfjhdghasdhjkashqwejkashdjk</td>
-            </tr>
-            <tr>
-                <td>34qwe567</td>
-                <td>D</td>
-                <td>D</td>
-                <td>Dfjhdghasdhjkashqwejkashdjk</td>
+                <td class="comId"><%=complain.getcomId()%></td>
+                <td class="Date"><%=complain.getDate()%></td>
+                <td class="description"><%=complain.getDescription()%><%}}%></td>
 
         </table>
 

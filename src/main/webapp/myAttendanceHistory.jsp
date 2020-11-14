@@ -122,44 +122,44 @@
             </tr>
             <tr>
                 <td>
-                    A
+                    Sample ID 1
                 </td>
                 <td>
-                    B
+                    Sample Date 1
                 </td>
                 <td>
-                    C
+                    Sample Attend 1
                 </td>
                 <td>
-                    B
+                    Sample Leave 1
                 </td>
                 <td>
-                    C
+                    Sample W/H 1
                 </td>
                 <td>
-                    D
+                    Sample OT 1
                 </td>
 
             </tr>
             <tr>
 
                 <td>
-                    B
+                    Sample ID 2
                 </td>
                 <td>
-                    C
+                    Sample Date 2
                 </td>
                 <td>
-                    B
+                    Sample Attend 2
                 </td>
                 <td>
-                    C
+                    Sample Leave 2
                 </td>
                 <td>
-                    D
+                    Sample W/H 2
                 </td>
                 <td>
-                    D
+                    Sample OT 2
                 </td>
             </tr>
 

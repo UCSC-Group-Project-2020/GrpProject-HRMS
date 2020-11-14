@@ -134,20 +134,13 @@
                     <input class="input" type="text" name="phone" value="<%=employee.getContact()%>">
                 </th>
             </tr>
+
             <tr>
                 <td>
                     <label class="label">Password</label>
                 </td>
                 <th>
-                    <input class="input" type="password" name="current_password">
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <label class="label">Password</label>
-                </td>
-                <th>
-                    <input class="input" type="password" name="password" >
+                    <input class="input" type="password" name="password"  value="<%=employee.getPassword()%>">
                 </th>
             </tr>
             <tr>
@@ -155,7 +148,7 @@
                     <label class="label">Confirm Password</label>
                 </td>
                 <th>
-                    <input class="input" type="password" name="confirm_password">
+                    <input class="input" type="password" name="confirm_password" value="<%=employee.getPassword()%>">
                     <br>
                 </th>
             </tr>
