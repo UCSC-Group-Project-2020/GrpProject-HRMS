@@ -33,7 +33,6 @@
                 <td>10004</td>
                 <td>Ravindu</td>
             </tr>
-
         </table>
     </div>
     <div class="chat">

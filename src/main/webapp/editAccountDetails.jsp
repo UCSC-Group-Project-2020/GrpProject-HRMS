@@ -21,7 +21,7 @@
     <div class="heading">
         <h3>Change My Details</h3>
     </div>
-    <form action="updateMyDetails" method="POST">
+    <form action="updateMyDetails" method="POST" autocomplete="off">
         <%
             String result= (String) request.getAttribute("result");
             if(result != null){

@@ -1,33 +1,31 @@
 <%@ page import="DBconnection.DBconn" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%//System.out.printf(session.getAttribute("chatSys").equals(1));%>
 
 <div class="head">
     <%try {
-            Connection con = DBconn.getConnection();
-            Statement statement = con.createStatement();
-            ResultSet rsNotifi = null;
-            rsNotifi = statement.executeQuery("SELECT * FROM notification where receiverId ="+session.getAttribute("empId"));
-            while (rsNotifi.next()) {
-                int msgnotify=rsNotifi.getInt("messageFlag");
-                int leaveNotify=rsNotifi.getInt("leaveFlag");
-                int comNotify=rsNotifi.getInt("complainSuggestionFlag");
-                int salNotify=rsNotifi.getInt("salaryFlag");
-                int levResponce=rsNotifi.getInt("leaveResponseFlag");
-%>
+        Connection con = DBconn.getConnection();
+        Statement statement = con.createStatement();
+        ResultSet rsNotifi = null;
+        rsNotifi = statement.executeQuery("SELECT * FROM notification where receiverId ="+session.getAttribute("empId"));
+        while (rsNotifi.next()) {
+            int msgnotify=rsNotifi.getInt("messageFlag");
+            int leaveNotify=rsNotifi.getInt("leaveFlag");
+            int comNotify=rsNotifi.getInt("complainSuggestionFlag");
+            int salNotify=rsNotifi.getInt("salaryFlag");
+            int levResponce=rsNotifi.getInt("leaveResponseFlag");
+    %>
     <a href="login.jsp" class="Logout">Logout</a>
-    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" href="chatSystem.jsp" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
+    <%if(session.getAttribute("chatSys").equals(1)) {%><a class="Msgs" aria-readonly="true"<%if(msgnotify==1){%>style="background-color: #4bbe19"<%}%>>Messages</a><%}%>
     <%if(session.getAttribute("viewMySalary").equals(1)) {%><a href="mySalaryOverview.jsp" class="Salary"<%if(salNotify==1){%>style="background-color: #4BBE19" <%}%>>Calculated Salary</a><%}%>
     <%if(session.getAttribute("decisionLeave").equals(1)) {%><a href="approveOrRejectLeave.jsp" class="Leave" <%if(leaveNotify==1){%> style="background-color: #4BBE19"<%}%>>Leave Requests</a><%}%>
     <%if(session.getAttribute("viewMyLeaves").equals(1)) {%><a href="myLeaveHistory.jsp" class="Leave" <%if(levResponce==1){%> style="background-color: #4BBE19"<%}%> >Leave Response</a><%}%>
-    <%if(session.getAttribute("viewComSug").equals(1)) {%><a href="viewComplains.jsp" class="com" <%if(comNotify==1){%>style="background-color: #4BBE19"<%}%>>Complain/Suggestion</a><%}}
-        } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println("WERTYUIOP{"+session.getAttribute("empId"));
-        System.out.println(e);
-    }
-    %>
+    <%if(session.getAttribute("viewComSug").equals(1)) {%><a href="viewComplians.jsp" class="com" <%if(comNotify==1){%>style="background-color: #4BBE19"<%}%>>Complain/Suggestion</a><%}}
+} catch (SQLException e) {
+    e.printStackTrace();
+    System.out.println(e);
+}
+%>
 </div>
 <div class="main-menu">
     <img class="avater" src="img/avatar.svg" alt="">
@@ -104,8 +102,8 @@
                 <a href="#">Social Intranet<span class="sub-arrow"></span></a>
                 <ul><%if(session.getAttribute("chatSys").equals(1)) {%><li><a href="chatSystem.jsp">Chat System</a></li><%}%>
                     <%if(session.getAttribute("postAdd").equals(1)) {%><li><a href="addPost.jsp">Add Post</a></li><%}%>
-                    <%if(session.getAttribute("postAdd").equals(1)) {%><li><a href="updatePost.jsp">Update Post</a></li><%}%>
-                    <%if(session.getAttribute("postDel").equals(1)) {%><li><a href="deletePost.jsp">Delete Post</a></li><%}%>
+                    <%if(session.getAttribute("postAdd").equals(1)) {%><li><a href="editPost.jsp">Update Post</a></li><%}%>
+                    <%if(session.getAttribute("postDel").equals(1)) {%><li><a href="deleteMyPost.jsp">Delete Post</a></li><%}%>
                 </ul>
             </li>
             <%}%>

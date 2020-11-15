@@ -27,37 +27,37 @@
     </div>
     <%if(session.getAttribute("postView").equals(0)){%>
 
-           <img class="noPostImg" src="img/noPost.jpg" />
+    <img class="noPostImg" src="img/noPost.jpg" />
 
     <%}else{%>
     <form method="POST" action="home.jsp">
-    <div class="post">
-        <br>
-        <table id="post_table">
-            <%
-                ResultSet rs= null;
-                try
-                {
-                    Connection con = DBconn.getConnection();
-                    Statement statement = con.createStatement();
-                    rs = statement.executeQuery("SELECT post.*,user.firstName,user.lastName FROM post INNER JOIN user ON user.empId = post.empId GROUP BY post.postId DESC");
+        <div class="post">
 
-                    while(rs.next()){
-                        String pId = rs.getString("postId");
-                        int count = rs.getInt("postImage");
-            %>
-            <tr>
-            <tr>
-                <th class="name"><%=rs.getString("firstName")%> <%=rs.getString("lastName")%></th>
-            </tr>
-            <tr>
-                <td class="date"><%=rs.getString("dateTime")%></td>
-            </tr>
-            <tr>
-                <td class="des"><%=rs.getString("postText")%></td>
-            </tr >
-            <tr>
-            <%
+            <table id="post_table">
+                <%
+                    ResultSet rs= null;
+                    try
+                    {
+                        Connection con = DBconn.getConnection();
+                        Statement statement = con.createStatement();
+                        rs = statement.executeQuery("SELECT post.*,user.firstName,user.lastName FROM post INNER JOIN user ON user.empId = post.empId GROUP BY post.postId DESC");
+
+                        while(rs.next()){
+                            String pId = rs.getString("postId");
+                            int count = rs.getInt("postImage");
+                %>
+                <tr>
+                    <tr>
+                        <th class="name"><%=rs.getString("firstName")%> <%=rs.getString("lastName")%></th>
+                    </tr>
+                    <tr>
+                        <td class="date"><%=rs.getString("dateTime")%></td>
+                    </tr>
+                    <tr>
+                         <td class="des"><%=rs.getString("postText")%></td>
+                    </tr >
+                    <tr>
+                         <%
             String imgs[] = new String[count];
             Blob img;
             int a=0;
@@ -83,33 +83,30 @@
             }
             if(count%2==0){
                 for(int j=0;j<count;j=j+2){%>
-            <tr>
-                <th class="image">
-                    <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>" />
-                    <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
-                </th>
-            </tr>
-            <%}}
-            else{%>
-            <tr>
-                <th class="image">
-                    <img class="singleImg" src="data:image/jpg;base64,<%=imgs[0]%>"/>
-                </th>
-            </tr>
-                <%for(int j=1;j<count;j=j+2){%>
-            <tr>
-                <th class="image">
-                    <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>"/>
-                    <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
-                </th>
-            </tr>
-            <%}}}}catch (SQLException e){e.printStackTrace();}%>
-            </tr>
+                        <tr>
+                            <th class="image">
+                                <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>" />
+                                <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
+                            </th>
+                        </tr>
+                            <%}}
+                            else{%>
+                        <tr>
+                            <th class="image"><img class="singleImg" src="data:image/jpg;base64,<%=imgs[0]%>"/></th>
+                        </tr>
+                        <%for(int j=1;j<count;j=j+2){%>
+                        <tr>
+                            <th class="image">
+                                <img class="imgL" src="data:image/jpg;base64,<%=imgs[j]%>"/>
+                                <img class="imgR" src="data:image/jpg;base64,<%=imgs[j+1]%>"/>
+                            </th>
+                        </tr>
+                        <%}}}}catch (SQLException e){e.printStackTrace();}%>
+                    </tr>
 
-            </tr>
-
-        </table>
-    </div>
+                </tr>
+            </table>
+        </div>
         <%}%>
     </form>
 

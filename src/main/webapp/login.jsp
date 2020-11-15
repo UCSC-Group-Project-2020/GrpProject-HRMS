@@ -16,7 +16,7 @@
 <img class="wave" src="img/3.jpg">
 <div class="container">
     <div class="login-content">
-        <form action="login" method="post">
+        <form action="login" method="post" autocomplete="off">
                 <%
                 String result= (String) request.getAttribute("login");;%>
             <img src="img/avatar.svg">

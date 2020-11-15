@@ -1,7 +1,6 @@
 package user;
 
 import DBconnection.DBconn;
-
 import java.sql.*;
 
 public class UserDao
@@ -21,10 +20,11 @@ public class UserDao
         {
             con = DBconn.getConnection();
             statement = con.createStatement();
-            rs = statement.executeQuery("SELECT * FROM userprivilege WHERE empId = '"+empId+"'");
+            rs = statement.executeQuery("SELECT user.firstName, userprivilege.* FROM user INNER JOIN userprivilege ON user.empId = userprivilege.empId WHERE user.empId = '"+empId+"'");
 
             while (rs.next())
             {
+                firstName = rs.getString("firstName");
                 empAddDB = rs.getInt("addEmployee");
                 empDelDB = rs.getInt("deleteEmployee");
                 postAddDB = rs.getInt("addPost");
@@ -47,6 +47,7 @@ public class UserDao
                 genReportDB = rs.getInt("generateReport");
 
                 userPrivilege.setEmpId(empId);
+                userPrivilege.setName(firstName);
                 userPrivilege.setEmpAdd(empAddDB);
                 userPrivilege.setEmpDel(empDelDB);
                 userPrivilege.setPostAdd(postAddDB);
@@ -68,15 +69,6 @@ public class UserDao
                 userPrivilege.setViewAllSalary(viewAllSalaryDB);
                 userPrivilege.setGenReport(genReportDB);
 
-                ResultSet rs2 = null;
-                String s="user";
-                rs2 = statement.executeQuery("SELECT firstName FROM "+s+" WHERE empId = '" + empId + "'");
-                while (rs2.next()) {
-
-                    firstName=rs2.getString("firstName");
-                    userPrivilege.setName(firstName);
-
-                }
             }
         }
         catch (SQLException e)

@@ -85,17 +85,12 @@
                             filein.type = "file";
                             filein.name = "imgFile"+i;
                             filein.className = "fileChoose";
+                            filein.accept = "image/*";
                             document.getElementById("m").appendChild(filein);
                             document.getElementById("tot").value=i;
                             i++;
                         }
                     </script>
-                        <script>
-                            function imgCount()
-                            {
-                                document.getElementsByTagName("file").length;
-                            }
-                        </script>
                     </th>
                 </tr>
             </table>

@@ -77,7 +77,7 @@
         <servlet-name>UpdateEmployee</servlet-name>
         <servlet-class>UpdateEmployee</servlet-class>
     </servlet>
-    changeMyDetails
+
     <servlet-mapping>
         <servlet-name>UpdateEmployee</servlet-name>
         <url-pattern>/updateemployee</url-pattern>
@@ -125,11 +125,26 @@
 
     <servlet>
         <servlet-name>addPost</servlet-name>
-        <servlet-class>addPost</servlet-class>
+        <servlet-class>AddPost</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addPost</servlet-name>
         <url-pattern>/addpost</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>EditPost</servlet-name>
+        <servlet-class>EditPost</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPost</servlet-name>
+        <url-pattern>/editpost</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeletePost</servlet-name>
+        <servlet-class>DeletePost</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePost</servlet-name>
+        <url-pattern>/deletepost</url-pattern>
+    </servlet-mapping>
 </web-app>
